@@ -1,0 +1,50 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.com.munif.fafestoque.entidades;
+
+/**
+ *
+ * @author munifgebarajunior
+ */
+public class ItemVenda {
+
+    private int quantidade;
+    private double valor;
+    private Produto produto;
+
+    public ItemVenda() {
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemVenda{" + "quantidade=" + quantidade + ", valor=" + valor + ", produto=" + produto + '}';
+    }
+
+}
