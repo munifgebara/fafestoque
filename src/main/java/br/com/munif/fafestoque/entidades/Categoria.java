@@ -3,18 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.munif.fafestoque.entidades;
 
 import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
  * @author munifgebarajunior
  */
+@Entity
 public class Categoria {
-    
+
+    @Id
+    @GeneratedValue
+    private Long codigo;
+
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
+
     private String nome;
+    @ManyToMany(mappedBy = "categorias")
     private Set<Produto> produtos;
 
     public Categoria() {
@@ -40,5 +57,5 @@ public class Categoria {
     public String toString() {
         return "Categoria{" + "nome=" + nome + '}';
     }
-    
+
 }

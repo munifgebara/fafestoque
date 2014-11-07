@@ -7,16 +7,62 @@ package br.com.munif.fafestoque.entidades;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
 
 /**
  *
  * @author munifgebarajunior
  */
+@Entity
 public class Venda {
 
+    @Id
+    @GeneratedValue
+    private Long codigo;
+
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.codigo);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Venda other = (Venda) obj;
+        if (!Objects.equals(this.codigo, other.codigo)) {
+            return false;
+        }
+        return true;
+    }
+
     private int numero;
+
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date quando;
+    @ManyToOne
     private Pessoa pessoa;
+    @OneToMany
     private List<ItemVenda> itens;
 
     public Venda() {

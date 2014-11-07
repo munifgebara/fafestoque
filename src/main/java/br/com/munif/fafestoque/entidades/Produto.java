@@ -6,16 +6,33 @@
 package br.com.munif.fafestoque.entidades;
 
 import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
  * @author munifgebarajunior
  */
-public class Produto {
+@Entity public class Produto {
 
+    @Id @GeneratedValue private Long codigo;
+
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
+
+
+    
     private String nome;
     private int quantidade;
     private double valor;
+    @ManyToMany
     private Set<Categoria> categorias;
 
     public Produto() {

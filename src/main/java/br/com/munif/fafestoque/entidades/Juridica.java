@@ -5,11 +5,13 @@
  */
 package br.com.munif.fafestoque.entidades;
 
+import javax.persistence.Entity;
+
 /**
  *
  * @author munifgebarajunior
  */
-public class Juridica {
+@Entity public class Juridica extends Pessoa{
 
     public String cnpj;
 

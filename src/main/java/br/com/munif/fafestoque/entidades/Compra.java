@@ -7,16 +7,36 @@ package br.com.munif.fafestoque.entidades;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author munifgebarajunior
  */
+@Entity
 public class Compra {
+
+    @Id
+    @GeneratedValue
+    private Long codigo;
+
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
 
     private int numero;
     private Date quando;
+    @ManyToOne
     private Juridica juridica;
+    @OneToMany
     private List<ItemCompra> itens;
 
     public Compra() {

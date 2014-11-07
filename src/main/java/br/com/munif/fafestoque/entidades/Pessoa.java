@@ -5,11 +5,31 @@
  */
 package br.com.munif.fafestoque.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 /**
  *
  * @author munifgebarajunior
  */
+@Inheritance(strategy = InheritanceType.JOINED)
+@Entity
 public class Pessoa {
+
+    @Id
+    @GeneratedValue
+    private Long codigo;
+
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
 
     private String nome;
     private String email;
